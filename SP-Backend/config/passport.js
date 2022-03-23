@@ -12,25 +12,26 @@ const {
 } = require("../utils/math");
 
 const verifyCallback = async (username, password, done) => {
-  await Admin.findOne({ username: username }, function (err, user) {
-    if (err) {
-      return done(err);
-    }
-    if (!user) {
-      console.log("incorrect Username");
-      return done(null, false, { message: "Incorrect username." });
-    }
-    if (!validPassword(password, user.hash, user.salt)) {
-      console.log("incorrect password");
-      return done(null, false, { message: "Incorrect password." });
-    }
-    if (validPassword(password, user.hash, user.salt)) {
-      console.log("Account credentials matched");
-      return done(null, user);
-    }
+  Admin.findOneAndUpdate({ username: username })
+    .then((user) => {
+      if (!user) {
+        console.log("incorrect Username");
+        return done(null, false, { message: "Incorrect username." });
+      }
+      if (!validPassword(password, user.hash, user.salt)) {
+        console.log("incorrect password");
+        return done(null, false, { message: "Incorrect password." });
+      }
+      if (validPassword(password, user.hash, user.salt)) {
+        console.log("Account credentials matched");
+        return done(null, user);
+      }
 
-    console.log("unexpected error");
-  });
+      console.log("unexpected error");
+    })
+    .catch((err) => {
+      done(err);
+    });
 };
 
 const adminStrategy = new LocalStrategy(verifyCallback);
@@ -41,8 +42,8 @@ passport.serializeUser(function (user, done) {
   done(null, user.username);
 });
 
-passport.deserializeUser(function (id, done) {
-  Admin.findById(id, function (err, user) {
+passport.deserializeUser(async function (id, done) {
+  await Admin.findById(id, function (err, user) {
     done(err, user);
   });
 });
