@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
     <title>Login</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Login</h1>
-        <form>
-            <div class="form-control">
-                <input type="text" required>
-                <label>Email</label>
-            </div>
-            <div class="form-control">
-                <input type="password" required>
-                <label>Password</label>
-            </div>
-            <button class="btn">Login</button>
-        </form>
+      <h1>Login</h1>
+      <form id="login-form">
+        <div class="form-control">
+          <input type="text" required id="username" />
+          <label>Username</label>
+        </div>
+        <div class="form-control">
+          <input type="password" required id="password" />
+          <label>Password</label>
+        </div>
+        <button class="btn" type="submit">Login</button>
+      </form>
     </div>
-    <!-- <script src="login.js"></script> -->
-</body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="login.js"></script>
+  </body>
 </html>
