@@ -73,19 +73,17 @@
 	text-decoration: none;
 }
 
-.social-media i {
-	height: 25px;
-	width: 25px;
-	margin: 20px 10px;
-	padding: 4px;
+.social-media img {
+	height: 40px;
+	width: 40px;
+	margin: -13px 10px;
 	color: #fff;
 	transition: 0.5s;
 }
 
-.social-media i:hover {
+.social-media img:hover {
 	transform: scale(1.5);
 }
-
 .footer-copyright{
 	align-self: flex-end;
 	text-align: center;
