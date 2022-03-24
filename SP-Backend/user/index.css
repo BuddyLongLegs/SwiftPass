@@ -1,0 +1,287 @@
+/***********************
+ *	Variables
+ **********************/
+/***********************
+  *	Project Main Styles
+  **********************/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #282828;
+}
+
+@media only screen and (max-width: 1000px) {
+  #Laptop {
+    display: none;
+  }
+}
+
+.slider-pages {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.slider-page {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  -webkit-transition: -webkit-transform 1350ms;
+  transition: -webkit-transform 1350ms;
+  transition: transform 1350ms;
+  transition: transform 1350ms, -webkit-transform 1350ms;
+}
+
+.slider-page--skew {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 140%;
+  height: 100%;
+  background: #282828;
+  -webkit-transform: skewX(-18deg);
+          transform: skewX(-18deg);
+}
+
+.slider-page--left {
+  left: 0;
+  -webkit-transform: translateX(-32.5vh) translateY(100%) translateZ(0);
+          transform: translateX(-32.5vh) translateY(100%) translateZ(0);
+}
+
+.slider-page--left .slider-page--skew {
+  left: -40%;
+}
+
+.slider-page--left .slider-page__content {
+  padding: auto 30% auto 30%;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+}
+
+.slider-page--right {
+  left: 50%;
+  -webkit-transform: translateX(32.5vh) translateY(-100%) translateZ(0);
+          transform: translateX(32.5vh) translateY(-100%) translateZ(0);
+}
+
+.slider-page--right .slider-page--skew {
+  right: -40%;
+}
+
+.slider-page--right .slider-page__content {
+  padding: auto 30% auto 30%;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+}
+
+.slider-page__content {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 30% 0 30%;
+  color: #e2e2e2;
+  background-size: cover;
+  -webkit-transform: skewX(18deg);
+          transform: skewX(18deg);
+  -webkit-transition: -webkit-transform 1350ms;
+  transition: -webkit-transform 1350ms;
+  transition: transform 1350ms;
+  transition: transform 1350ms, -webkit-transform 1350ms;
+}
+
+.slider-page__title {
+  margin-bottom: 1em;
+  font-size: 1.25em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.slider-page__title--big {
+  font-size: 1.5em;
+}
+
+.slider-page__description {
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.slider-page__link {
+  color: #80a1c1;
+}
+
+.slider-page__link:hover, .slider-page__link:focus {
+  color: #6386a9;
+  text-decoration: none;
+}
+
+/***********************
+  *	Project JS Styles
+  **********************/
+.js-scrolling__page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.js-scrolling--active .slider-page {
+  -webkit-transform: translateX(0) translateY(0) translateZ(0);
+          transform: translateX(0) translateY(0) translateZ(0);
+}
+
+.js-scrolling--inactive .slider-page__content {
+  -webkit-transform: skewX(18deg) scale(0.9);
+          transform: skewX(18deg) scale(0.9);
+}
+
+.js-scrolling__page-1 .slider-page--left .slider-page__content {
+  background-image: url("../resources/NMD.jpg");
+}
+
+.js-scrolling__page-1 .slider-page--right .slider-page__content {
+  background-color: #282828;
+}
+
+.js-scrolling__page-2 .slider-page--left .slider-page__content {
+  background-color: #e2e2e2;
+}
+
+.js-scrolling__page-2 .slider-page--left .slider-page__title,
+.js-scrolling__page-2 .slider-page--left .slider-page__description {
+  color: #282828;
+}
+
+.js-scrolling__page-2 .slider-page--right .slider-page__content {
+  background-image: url("../resources/jewellery1.jpg");
+}
+
+.js-scrolling__page-3 .slider-page--left .slider-page__content {
+  background-image: url("../resources/jewellery2.jpg");
+}
+
+.js-scrolling__page-3 .slider-page--right .slider-page__content {
+  background-color: #282828;
+}
+
+.js-scrolling__page-4 .slider-page--left .slider-page__content {
+  background-color: #e2e2e2;
+}
+
+.js-scrolling__page-4 .slider-page--left .slider-page__title,
+.js-scrolling__page-4 .slider-page--left .slider-page__description {
+  color: #282828;
+}
+
+.js-scrolling__page-4 .slider-page--right .slider-page__content {
+  background-image: url("../resources/jwellery.jpg");
+}
+
+.js-scrolling__page-5 .slider-page--left .slider-page__content {
+  background-image: url("../resources/archeology1.jpg");
+}
+
+.js-scrolling__page-5 .slider-page--right .slider-page__content {
+  background-color: #282828;
+}
+
+.js-scrolling__page-6 .slider-page--left .slider-page__content {
+  background-color: #e2e2e2;
+}
+
+.js-scrolling__page-6 .slider-page--left .slider-page__title,
+.js-scrolling__page-6 .slider-page--left .slider-page__description {
+  color: #282828;
+}
+
+.js-scrolling__page-6 .slider-page--right .slider-page__content {
+  background-image: url("../resources/archeology2.jpg");
+}
+
+.js-scrolling__page-7 .slider-page--left .slider-page__content {
+  background-image: url("../resources/caa1.jpg");
+}
+
+.js-scrolling__page-7 .slider-page--right .slider-page__content {
+  background-color: #282828;
+}
+
+.js-scrolling__page-8 .slider-page--left .slider-page__content {
+  background-color: #e2e2e2;
+}
+
+.js-scrolling__page-8 .slider-page--left .slider-page__title,
+.js-scrolling__page-8 .slider-page--left .slider-page__description {
+  color: #282828;
+}
+
+.js-scrolling__page-8 .slider-page--right .slider-page__content {
+  background-image: url("../resources/caa2.jpg");
+}
+
+.js-scrolling__page-9 .slider-page--left .slider-page__content {
+  background-image: url("../resources/caa3.jpg");
+}
+
+.js-scrolling__page-9 .slider-page--right .slider-page__content {
+  background-color: #282828;
+}
+
+.js-scrolling__page-10 .slider-page--left .slider-page__content {
+  background-color: #e2e2e2;
+}
+
+.js-scrolling__page-10 .slider-page--left .slider-page__title,
+.js-scrolling__page-10 .slider-page--left .slider-page__description {
+  color: #282828;
+}
+
+.js-scrolling__page-10 .slider-page--right .slider-page__content {
+  background-image: url("../resources/painting1.jpg");
+}
+
+.js-scrolling__page-11 .slider-page--left .slider-page__content {
+  background-image: url("../resources/painting2.jpg");
+}
+
+.js-scrolling__page-11 .slider-page--right .slider-page__content {
+  background-color: #282828;
+}
+
+.js-scrolling__page-12 .slider-page--left .slider-page__content {
+  background-color: #e2e2e2;
+}
+
+.js-scrolling__page-12 .slider-page--left .slider-page__title,
+.js-scrolling__page-12 .slider-page--left .slider-page__description {
+  color: #282828;
+}
+
+.js-scrolling__page-12 .slider-page--right .slider-page__content {
+  background-image: url("../resources//painting3.jpg");
+}
+/*# sourceMappingURL=index.css.map */

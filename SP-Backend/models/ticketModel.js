@@ -47,8 +47,7 @@ const ticketSchema = new mongoose.Schema({
     default: false,
   },
   checkingAdminId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Admin", //the ref tells which model to use as reference
+    type: String
   },
   otpCode: {
     type: String,

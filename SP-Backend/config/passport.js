@@ -39,7 +39,7 @@ const adminStrategy = new LocalStrategy(verifyCallback);
 passport.use("admin-local", adminStrategy);
 
 passport.serializeUser(function (user, done) {
-  done(null, user.username);
+  done(null, user.id);
 });
 
 passport.deserializeUser(async function (id, done) {

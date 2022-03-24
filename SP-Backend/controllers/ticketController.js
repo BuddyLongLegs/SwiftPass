@@ -90,7 +90,7 @@ const checkTicket = async (req, res) => {
       if (ticket.email == req.body.email) {
         ticket.usable = false;
         ticket.usedOn = Date.now();
-        ticket.checkingAdminId = req.user._id; // have doubt if it will work or not
+        ticket.checkingAdminId = req.user.username; // have doubt if it will work or not
         await ticket.save();
         return res.status(202).json({
           status: "success",
@@ -105,7 +105,7 @@ const checkTicket = async (req, res) => {
       }
     }
   } catch (err) {
-    console.log("Error Checking Ticket");
+    console.log(err);
     res.status(500).json({
       status: 500,
       error: `Error Checking Ticket: ${err.message}`,

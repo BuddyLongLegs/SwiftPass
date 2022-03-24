@@ -1,0 +1,324 @@
+/***********************
+ *	Variables
+ **********************/
+ $font-family:             'Open Sans', sans-serif;
+ $font-size:               1.25em;
+ 
+ $color-body:              #282828;
+ $color-text:              #e2e2e2;
+ $color-link:              #80a1c1;
+ $color-link-active:       #6386a9;
+ 
+ $variable-skewX:          18deg;
+ $variable-vHForSkewX:     32.5vh;
+ $variable-scrollingTime:  1350ms;
+ 
+ /***********************
+  *	Project Main Styles
+  **********************/
+ *,
+ *:before,
+ *:after {
+   box-sizing: border-box;
+   margin:     0;
+   padding:    0;
+ }
+ 
+ body {
+   font-family:      $font-family;
+   background-color: $color-body;
+ }
+ 
+ @media only screen and (max-width: 1000px) {
+  #Laptop{
+    display: none;
+  }
+}
+
+ .slider-pages {
+   overflow: hidden;
+   position: relative;
+ 
+   height:   100vh;
+ }
+ 
+ .slider-page {
+   position:   absolute;
+ 
+   top:        0;
+   width:      50%;
+   height:     100vh;
+ 
+   transition: transform $variable-scrollingTime;
+ }
+ 
+ .slider-page--skew {
+   overflow:   hidden;
+   position:   absolute;
+ 
+   top:        0;
+   width:      140%;
+   height:     100%;
+ 
+   background: $color-body;
+ 
+   transform:  skewX($variable-skewX * -1);
+ }
+ 
+ .slider-page--left {
+   left:       0;
+ 
+   transform:  translateX($variable-vHForSkewX * -1)
+               translateY(100%)
+               translateZ(0);
+ 
+   .slider-page--skew {
+     left:     -40%;
+   }
+ 
+   .slider-page__content {
+     padding:          auto 30% auto 30%;
+ 
+     transform-origin: 100% 0;
+   }
+ }
+ 
+ .slider-page--right {
+   left:       50%;
+ 
+   transform:  translateX($variable-vHForSkewX)
+               translateY(-100%)
+               translateZ(0);
+ 
+   .slider-page--skew {
+     right:    -40%;
+   }
+ 
+   .slider-page__content {
+     padding:          auto 30% auto 30%;
+ 
+     transform-origin: 0 100%;
+   }
+ }
+ 
+ .slider-page__content {
+   position:         absolute;
+ 
+   display:          flex;
+   justify-content:  center;
+   align-items:      center;
+   flex-flow:        column wrap;
+ 
+   top:      0;
+   left:     0;
+   width:    100%;
+   height:   100%;
+   padding:  0 30% 0 30%;
+ 
+   color:            $color-text;
+   background-size:  cover;
+ 
+   transform:  skewX($variable-skewX);
+   transition: transform $variable-scrollingTime;
+ }
+ 
+ .slider-page__title {
+   margin-bottom: 1em;
+ 
+   font-size:  $font-size;
+   text-align: center;
+ 
+   text-transform: uppercase;
+ }
+ 
+ .slider-page__title--big {
+   font-size:  $font-size * 1.2;
+ }
+ 
+ .slider-page__description {
+   font-size:  $font-size;
+   text-align: center;
+ }
+ 
+ .slider-page__link {
+   color:      $color-link;
+ 
+   &:hover,
+   &:focus {
+     color:            $color-link-active;
+     text-decoration:  none;
+   }
+ }
+ 
+ /***********************
+  *	Project JS Styles
+  **********************/
+ .js-scrolling__page {
+   position:   absolute;
+ 
+   top:        0;
+   left:       0;
+   width:      100%;
+ }
+ 
+ .js-scrolling--active {
+ 
+   .slider-page {
+     transform:  translateX(0)
+                 translateY(0)
+                 translateZ(0);
+   }
+ }
+ 
+ .js-scrolling--inactive {
+ 
+   .slider-page__content {
+     transform:  skewX($variable-skewX)
+                 scale(.9);
+   }
+ }
+ 
+ .js-scrolling__page-1 {
+ 
+   .slider-page--left .slider-page__content {
+     background-image: url('./resources/NMD.jpg'); }
+ 
+   .slider-page--right .slider-page__content {
+     background-color: $color-body;
+   }
+ }
+ 
+ .js-scrolling__page-2 {
+ 
+   .slider-page--left .slider-page__content {
+     background-color: $color-text;
+   }
+   .slider-page--left .slider-page__title,
+   .slider-page--left .slider-page__description {
+     color:            $color-body;
+   }
+ 
+   .slider-page--right .slider-page__content {
+     background-image: url('./resources/jewellery1.jpg');}
+ }
+ 
+ .js-scrolling__page-3 {
+ 
+   .slider-page--left .slider-page__content {
+     background-image: url('./resources/jewellery2.jpg');}
+ 
+   .slider-page--right .slider-page__content {
+     background-color: $color-body;
+   }
+ }
+
+ .js-scrolling__page-4 {
+ 
+  .slider-page--left .slider-page__content {
+    background-color: $color-text;
+  }
+  .slider-page--left .slider-page__title,
+  .slider-page--left .slider-page__description {
+    color:            $color-body;
+  }
+
+  .slider-page--right .slider-page__content {
+    background-image: url('./resources/jwellery.jpg');}
+}
+ 
+
+.js-scrolling__page-5 {
+ 
+  .slider-page--left .slider-page__content {
+    background-image: url('./resources/archeology1.jpg'); }
+
+  .slider-page--right .slider-page__content {
+    background-color: $color-body;
+  }
+}
+
+.js-scrolling__page-6 {
+ 
+  .slider-page--left .slider-page__content {
+    background-color: $color-text;
+  }
+  .slider-page--left .slider-page__title,
+  .slider-page--left .slider-page__description {
+    color:            $color-body;
+  }
+
+  .slider-page--right .slider-page__content {
+    background-image: url('./resources/archeology2.jpg');}
+}
+
+.js-scrolling__page-7 {
+ 
+  .slider-page--left .slider-page__content {
+    background-image: url('./resources/caa1.jpg'); }
+
+  .slider-page--right .slider-page__content {
+    background-color: $color-body;
+  }
+}
+
+.js-scrolling__page-8 {
+ 
+  .slider-page--left .slider-page__content {
+    background-color: $color-text;
+  }
+  .slider-page--left .slider-page__title,
+  .slider-page--left .slider-page__description {
+    color:            $color-body;
+  }
+
+  .slider-page--right .slider-page__content {
+    background-image: url('./resources/caa2.jpg');}
+}
+
+.js-scrolling__page-9 {
+ 
+  .slider-page--left .slider-page__content {
+    background-image: url('./resources/caa3.jpg'); }
+
+  .slider-page--right .slider-page__content {
+    background-color: $color-body;
+  }
+}
+
+.js-scrolling__page-10 {
+ 
+  .slider-page--left .slider-page__content {
+    background-color: $color-text;
+  }
+  .slider-page--left .slider-page__title,
+  .slider-page--left .slider-page__description {
+    color:            $color-body;
+  }
+
+  .slider-page--right .slider-page__content {
+    background-image: url('./resources/painting1.jpg');}
+}
+
+.js-scrolling__page-11 {
+ 
+  .slider-page--left .slider-page__content {
+    background-image: url('./resources/painting2.jpg'); }
+
+  .slider-page--right .slider-page__content {
+    background-color: $color-body;
+  }
+}
+
+.js-scrolling__page-12 {
+ 
+  .slider-page--left .slider-page__content {
+    background-color: $color-text;
+  }
+  .slider-page--left .slider-page__title,
+  .slider-page--left .slider-page__description {
+    color:            $color-body;
+  }
+
+  .slider-page--right .slider-page__content {
+    background-image: url('./resources//painting3.jpg');}
+}
