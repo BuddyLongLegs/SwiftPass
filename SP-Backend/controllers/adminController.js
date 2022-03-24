@@ -43,11 +43,36 @@ const newAdmin = async (req, res) => {
 };
 
 const adminLogin = async (req, res) => {
-  return res.status(200).json({
-    success: true,
-    message: "Logged In successfully",
-  });
-};
+  //method 1 -> not working
+    return res.status(200).json({
+      success: true,
+      message: "Logged In successfully",
+    });
+
+  //method 2
+  // const user = await Admin.findOne({username: req.body.username}).exec();
+  // if (!user) {
+  //   console.log("incorrect Username");
+  //   return res.status(404).json({ message: "Incorrect username." });
+  // }
+  // if (!validPassword(req.body.password, user.hash, user.salt)) {
+  //   console.log("incorrect password");
+  //   return res.status(402).json({ message: "Incorrect password." });
+  // }
+  // if (validPassword(req.body.password, user.hash, user.salt)) {
+  //   req.login(user._id,function(err){
+  //     if(err){
+  //       return res.status(500).json({
+  //         status: 500,
+  //         error: `Error Getting Users: ${err.message}`,
+  //       });
+  //     }
+  //     console.log("Logged in User");
+  //     console.log("Account credentials matched");
+  //     return res.status(202).json({message: "Logged in Successfully"});
+  //   })
+  // }  
+}
 
 const getAllAdmins = async (req, res) => {
   try {

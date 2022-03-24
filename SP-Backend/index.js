@@ -21,24 +21,25 @@ app.use(cors({ origin: "http://localhost:1234", credentials: true }));
 // });
 require("./config/passport");
 
-app.use(cookieParser());
 
 mongoose.connect(
   process.env.DATABASE,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
+  { useNewUrlParser: true, useUnifiedTopology: true }
+  )
+  .then(()=>{
     console.log("connected to db");
-  }
-);
-
-app.use(express.urlencoded({ extended: true }));
-
-app.use(express.json());
-
+  });
+  
+  app.use(express.urlencoded({ extended: true }));
+  
+  app.use(express.json());
+  
+  app.use(cookieParser("secret-code"));
+  
 app.use(
   session({
     secret: "secret-code",
-    cookie: { maxAge: 6000 },
+    cookie: { maxAge: 6000000, secure:false },
     resave: true,
     saveUninitialized: true,
   })

@@ -2,8 +2,8 @@
 
 const ifAdmin = async (req, res, next) => {
   console.log("i am running");
-  if (req.isAuthenticated) {
-    console.log(req.user);
+  console.log(req.isAuthenticated());
+  if (req.isAuthenticated()) {
     next();
   } else {
     res.status(401).json({

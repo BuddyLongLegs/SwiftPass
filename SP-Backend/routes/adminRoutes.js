@@ -23,7 +23,7 @@ const {
 
 const ifAdmin = require("../controllers/middlewares").ifAdmin;
 
-router.post("/login", passport.authenticate("admin-local"), adminLogin);
+router.post("/login",passport.authenticate("admin-local", {successRedirect:"http://localhost:1234/admin-home.html", failureRedirect:"http://localhost:1234/login.html"}), adminLogin);
 
 router.post("/checkticket", ifAdmin, checkTicket);
 
