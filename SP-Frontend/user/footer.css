@@ -31,6 +31,10 @@
 .footer-items h1 {
 	color: #F7CA44;
 }
+.footer-items h3 {
+	font-size: 1.17em;
+    font-weight: bold;
+}
 .border1 {
 	height: 3px;
 	width: 40px;
