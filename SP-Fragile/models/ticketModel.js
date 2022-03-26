@@ -51,10 +51,21 @@ const ticketSchema = new mongoose.Schema({
   },
   otpCode: {
     type: String,
-    default: "0",
   },
   otpTime: {
     type: Date,
+  },
+  razorpay_payment_id: {
+    type: String,
+    unique: true,
+  },
+  razorpay_order_id: {
+    type: String,
+    unique: true,
+  },
+  razorpay_signature:{
+    type: String,
+    unique: true,    
   },
 });
 

@@ -15,10 +15,10 @@
     content: "";
     position: absolute;
     left: 50%;
-    width: 60px;
-    height: 2px;
+    width: 40px;
+    height: 3px;
     background: #F7CA44;
-    bottom: -25px;
+    bottom: -10px;
     margin-left: -30px;
 }
 .faq-title p {
@@ -28,7 +28,7 @@
 
 .faq {
   background: #FFFFFF;
-  /* box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06); */
+
   box-shadow: 0 2px 48px 0 rgb(92, 60, 16, 0.09);
   border-radius: 4px;
 }

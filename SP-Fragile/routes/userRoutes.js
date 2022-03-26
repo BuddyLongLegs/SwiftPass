@@ -4,7 +4,6 @@ const router = express.Router();
 const {
     newTicket,
     checkTicket,
-    payTicket,
     delTicket,
     genOtp,
     getTicket,
@@ -12,13 +11,20 @@ const {
 } = require("../controllers/ticketController");
 
 
-router.post("/new", newTicket);
+const {
+    createOrder,
+    verifyOrder
+} = require("../controllers/paymentController");
+
+router.post("/new", createOrder);
 
 router.get("/showticket/:hashedID", getTicket);
 
-router.get("/pay/:hashedID", payTicket); // experimental
+router.get("/pay/verify", verifyOrder); // experimental
 
 router.delete("/del/:hashedID", delTicket); // experimental
+
+
 
 
 

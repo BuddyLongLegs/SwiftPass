@@ -68,9 +68,9 @@ function validPassword(password, hash, salt) {
     .pbkdf2Sync(password, salt, 10000, 64, "sha512")
     .toString("hex");
 
-  console.log(hashVerify);
-  console.log(hash);
-  console.log(hash === hashVerify);
+  // console.log(hashVerify);
+  // console.log(hash);
+  // console.log(hash === hashVerify);
 
   return hash === hashVerify;
 }

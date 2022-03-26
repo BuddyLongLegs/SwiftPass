@@ -1,9 +1,4 @@
 const Ticket = require("../models/ticketModel");
-// const hash = require("../utils/math").hash;
-// const dehash = require("../utils/math").dehash;
-// const encrypt = require("../utils/math").encrypt;
-// const decrypt = require("../utils/math").decrypt;
-// const getRandomCode = require("../utils/math").getRandomCode;
 const notify = require("../utils/email").notify;
 const {
   hash,
@@ -20,47 +15,37 @@ const hideTicket = require("../utils/detailHider").hideTicket;
 
 // Good Practice: Before sending ticket as response in res.json(), do this -> res.json({data: hideTicket(ticket)});
 
-const newTicket = async (req, res) => {
+const newTicket = async (ticket) => {
   try {
     let code = "";
     let notFound = true;
     while (notFound) {
       code = hash(getRandomCode());
       const check = await Ticket.exists({ code: code });
-      console.log(check);
       if (!check) {
         break;
       }
     }
-    let fdate = new Date(req.body.forDate);
+    let fdate = new Date(ticket.forDate);
     let newTick = new Ticket({
       code: code,
-      amount: 100,
-      name: req.body.name,
-      groupSize: req.body.groupSize,
+      amount: 100, //later it will be according to number of people
+      name: ticket.name,
+      groupSize: ticket.groupSize,
       forDate: fdate,
-      email: req.body.email,
+      email: ticket.email,
     });
-
-    let hashid = encrypt(dehash(code));
 
     await newTick.save();
-    notify(newTick.email, "new Ticket Created", "Ticket created");
-    return res.status(201).json({
-      // !!! correct this please
-      status: "ok",
-      message: `Ticket successfully created`,
-      data: hideTicket(newTick),
-      hashedID: hashid,
-    });
+    // notify(newTick.email, "new Ticket Created", "Ticket created");
+    return newTick;
   } catch (err) {
     console.log(err);
-    res.status(500).json({
-      status: 500,
-      error: `Error creating new Ticket: ${err}`,
-    });
+    return null;
   }
 };
+
+
 
 const checkTicket = async (req, res) => {
   // should we add a functionality to check wether date of ticketUsage is same as mentioned in ticket?? it is possible easily
@@ -113,38 +98,6 @@ const checkTicket = async (req, res) => {
   }
 };
 
-const payTicket = async (req, res) => {
-  try {
-    let code = hash(decrypt(req.params.hashedID));
-    let ticket = await Ticket.findOne({ code: code }).exec();
-    if (!ticket) {
-      return res.status(404).json({
-        status: "fail",
-        message: `Ticket not found`,
-      }); // ticket not found
-    }
-    if (ticket.paid) {
-      return res.status(400).json({
-        status: "fail",
-        message: `Already paid`,
-      }); // already paid
-    }
-    ticket.paid = true;
-    ticket.purchasedOn = Date.now();
-    await ticket.save();
-    return res.status(202).json({
-      status: "success",
-      message: `Ticket accepted`,
-      data: hideTicket(ticket),
-    }); // ticket accepted, data: code, groupSize, forDate, purchasedOn
-  } catch (err) {
-    console.log("Error Changing paid state of ticket");
-    res.status(500).json({
-      status: 500,
-      error: `Error changing paid state: ${err.message}`,
-    });
-  }
-};
 
 const delTicket = async (req, res) => {
   // can add a function that will refund if ticket is unused [Future Use]...
@@ -267,7 +220,6 @@ const getAllTickets = async (req, res) => {
 module.exports = {
   newTicket,
   checkTicket,
-  payTicket,
   delTicket,
   genOtp,
   getTicket,

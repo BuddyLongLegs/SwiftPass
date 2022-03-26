@@ -6,6 +6,9 @@ function hideTicket(ticket) {
   //  1. Email
   //  2. OTP Code  -> Not in use currently
   //  3. OTP Time  -> Not in use currently
+  //  4. razorpay_payment_id
+  //  5. razorpay_order_id
+  //  6. razorpay_signature
 
   // It also hashes code to hashedID -> currently not using
 
@@ -25,16 +28,25 @@ function hideTicket(ticket) {
     ticket.email = hidden;
   }
   if (ticket.otpCode) {
-    delete ticket.otpCode;
-  }
-
-  if (ticket.otpTime) {
-    delete ticket.otpTime;
+    ticket.otpCode = null;
   }
 
   if (ticket.otpTime) {
     ticket.otpTime = null;
   }
+
+  if (ticket.razorpay_payment_id) {
+    ticket.razorpay_payment_id = null;
+  }
+
+  if (ticket.razorpay_order_id) {
+    ticket.razorpay_order_id = null;
+  }
+
+  if (ticket.razorpay_signature) {
+    ticket.razorpay_signature = null;
+  }
+
 
   return ticket;
 }

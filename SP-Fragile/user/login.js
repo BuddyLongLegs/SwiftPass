@@ -5,12 +5,12 @@ function login(e) {
   const password = document.getElementById("password").value;
 
   axios
-    .post("/admin/login", {
+    .post("http://localhost:8000/admin/login", {
       username: username,
       password: password,
     })
     .then((response) => {
-      location.href = "/admin-home.html";
+      location.href = "../user/admin-home.html";
       console.log(response);
     })
     .catch((err) => {
