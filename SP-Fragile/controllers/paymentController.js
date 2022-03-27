@@ -34,41 +34,38 @@ const createOrder = async (req, res)=>{
         currency: "INR",
         receipt: ticket.code
     }
-
     rp.orders.create(options, async (err, order)=>{
-        if(err){
-            ticket.razorpay_order_id = order.id;
-            await ticket.save();
-            return res.status(500).json({status: 500, error: `Error Creating OrderID: ${err}`});
-        }
+        ticket.razorpay_order_id = order.id;
+        await ticket.save();
         return res.status(201).json(order);
     });
 }
 
 const verifyOrder = async (req, res)=>{
-    let ticket = await Ticket.findOne({razorpay_order_id: req.body.response.razorpay_order_id}).exec();
+    let ticket = await Ticket.findOne({code: req.params.code}).exec();
     if(ticket){
-        return res.status(404).json({
-            status: "fail",
-            message: `Ticket not found`,
-        });
-    }
-    let body=ticket.razorpay_order_id + "|" + req.body.response.razorpay_payment_id;
-    var expectedSignature = crypto.createHmac('sha256', process.env.PAYMENT_SECRET)
+        let body=ticket.razorpay_order_id + "|" + req.body.response.razorpay_payment_id;
+        var expectedSignature = crypto.createHmac('sha256', process.env.PAYMENT_SECRET)
                                     .update(body.toString())
                                     .digest('hex');
-    if(expectedSignature === req.body.response.razorpay_signature){
-        ticket.paid = true;
-        ticket.purchasedOn = Date.now();
-        ticket.razorpay_payment_id = req.body.response.razorpay_payment_id;
-        ticket.razorpay_signature = req.body.response.razorpay_signature;
-        await ticket.save();
-        return res.status(202).json({
-            status: "success",
-            message: `Ticket Paid`,
-            data: hideTicket(ticket),
-        });
+        if(expectedSignature === req.body.response.razorpay_signature){
+            ticket.paid = true;
+            ticket.purchasedOn = Date.now();
+            ticket.razorpay_payment_id = req.body.response.razorpay_payment_id;
+            ticket.razorpay_signature = req.body.response.razorpay_signature;
+            await ticket.save();
+            return res.status(202).json({
+                status: "success",
+                message: `Ticket Paid`,
+                data: hideTicket(ticket),
+            });
+        }
     }
+    return res.status(404).json({
+        status: "fail",
+        message: `Ticket not found`,
+    });
+
 }
 
 module.exports = {

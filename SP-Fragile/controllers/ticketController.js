@@ -29,7 +29,7 @@ const newTicket = async (ticket) => {
     let fdate = new Date(ticket.forDate);
     let newTick = new Ticket({
       code: code,
-      amount: 100, //later it will be according to number of people
+      amount: 100, //later it will be according to number of people // paisa
       name: ticket.name,
       groupSize: ticket.groupSize,
       forDate: fdate,

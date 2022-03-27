@@ -20,7 +20,7 @@ router.post("/new", createOrder);
 
 router.get("/showticket/:hashedID", getTicket);
 
-router.get("/pay/verify", verifyOrder); // experimental
+router.post("/pay/verify/:code", verifyOrder); // experimental
 
 router.delete("/del/:hashedID", delTicket); // experimental
 

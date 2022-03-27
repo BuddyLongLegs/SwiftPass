@@ -5,7 +5,7 @@ function login(e) {
   const password = document.getElementById("password").value;
 
   axios
-    .post("http://localhost:8000/admin/login", {
+    .post("/admin/login", {
       username: username,
       password: password,
     })
