@@ -11,8 +11,7 @@ body {
 .content h1{
   text-align: center;
   padding-top: 80px;
-color: #A2792F;
-
+  font-weight: 550;
 }
 .header{
   display: flex;
