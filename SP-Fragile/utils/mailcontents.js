@@ -251,15 +251,15 @@ const showTicket = (ticket)=>{
                         
                     </div>
     
-                    <--<div class="qr">
-                        <img src="resources/qr.png" alt="QR Code" id="qr">
-                    </div>-->
+                    <div class="qr">
+                        <img src="https://swift-pass.herokuapp.com/resources/qr.png" alt="QR Code" id="qr">
+                    </div>
                 </div>
     
             </div>
-            <--<div class="pic">
-                <img src="resources/NMD.jpg" alt="" id="sidepic">
-            </div>-->
+            <div class="pic">
+                <img src="https://swift-pass.herokuapp.com/resources/NMD.jpg" alt="" id="sidepic">
+            </div>
         </div>
     </div>
 

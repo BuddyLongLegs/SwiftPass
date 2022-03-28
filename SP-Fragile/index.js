@@ -27,7 +27,7 @@ mongoose.connect(
 app.use(express.json());
 
 app.use(cookieParser("secret-code"));
-
+app.set('trust proxy', 1);
 app.use(
   session({
     secret: "secret-code",
