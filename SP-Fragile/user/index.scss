@@ -29,9 +29,15 @@
    background-color: $color-body;
  }
  
- @media only screen and (max-width: 1000px) {
-  #Laptop{
-    display: none;
+ @media only screen and (max-width: 770px) {
+  .slider-page {
+    position:   absolute;
+  
+    top:        0;
+    width:      50%;
+    height:     120vh;
+  
+    transition: transform $variable-scrollingTime;
   }
 }
 

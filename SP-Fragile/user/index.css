@@ -18,9 +18,16 @@ body {
   background-color: #282828;
 }
 
-@media only screen and (max-width: 1000px) {
-  #Laptop {
-    display: none;
+@media only screen and (max-width: 770px) {
+  .slider-page {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 120vh;
+    -webkit-transition: -webkit-transform 1350ms;
+    transition: -webkit-transform 1350ms;
+    transition: transform 1350ms;
+    transition: transform 1350ms, -webkit-transform 1350ms;
   }
 }
 
@@ -160,7 +167,7 @@ body {
 }
 
 .js-scrolling__page-1 .slider-page--left .slider-page__content {
-  background-image: url("resources/NMD.jpg");
+  background-image: url("../resources/NMD.jpg");
 }
 
 .js-scrolling__page-1 .slider-page--right .slider-page__content {
@@ -177,11 +184,11 @@ body {
 }
 
 .js-scrolling__page-2 .slider-page--right .slider-page__content {
-  background-image: url("resources/jewellery1.jpg");
+  background-image: url("../resources/jewellery1.jpg");
 }
 
 .js-scrolling__page-3 .slider-page--left .slider-page__content {
-  background-image: url("resources/jewellery2.jpg");
+  background-image: url("../resources/jewellery2.jpg");
 }
 
 .js-scrolling__page-3 .slider-page--right .slider-page__content {
@@ -198,11 +205,11 @@ body {
 }
 
 .js-scrolling__page-4 .slider-page--right .slider-page__content {
-  background-image: url("resources/jwellery.jpg");
+  background-image: url("../resources/jwellery.jpg");
 }
 
 .js-scrolling__page-5 .slider-page--left .slider-page__content {
-  background-image: url("resources/archeology1.jpg");
+  background-image: url("../resources/archeology1.jpg");
 }
 
 .js-scrolling__page-5 .slider-page--right .slider-page__content {
@@ -219,11 +226,11 @@ body {
 }
 
 .js-scrolling__page-6 .slider-page--right .slider-page__content {
-  background-image: url("resources/archeology2.jpg");
+  background-image: url("../resources/archeology2.jpg");
 }
 
 .js-scrolling__page-7 .slider-page--left .slider-page__content {
-  background-image: url("resources/caa1.jpg");
+  background-image: url("../resources/caa1.jpg");
 }
 
 .js-scrolling__page-7 .slider-page--right .slider-page__content {
@@ -240,11 +247,11 @@ body {
 }
 
 .js-scrolling__page-8 .slider-page--right .slider-page__content {
-  background-image: url("resources/caa2.jpg");
+  background-image: url("../resources/caa2.jpg");
 }
 
 .js-scrolling__page-9 .slider-page--left .slider-page__content {
-  background-image: url("resources/caa3.jpg");
+  background-image: url("../resources/caa3.jpg");
 }
 
 .js-scrolling__page-9 .slider-page--right .slider-page__content {
@@ -261,11 +268,11 @@ body {
 }
 
 .js-scrolling__page-10 .slider-page--right .slider-page__content {
-  background-image: url("resources/painting1.jpg");
+  background-image: url("../resources/painting1.jpg");
 }
 
 .js-scrolling__page-11 .slider-page--left .slider-page__content {
-  background-image: url("resources/painting2.jpg");
+  background-image: url("../resources/painting2.jpg");
 }
 
 .js-scrolling__page-11 .slider-page--right .slider-page__content {
@@ -282,6 +289,6 @@ body {
 }
 
 .js-scrolling__page-12 .slider-page--right .slider-page__content {
-  background-image: url("resources//painting3.jpg");
+  background-image: url("../resources//painting3.jpg");
 }
 /*# sourceMappingURL=index.css.map */

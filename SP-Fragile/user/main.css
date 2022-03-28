@@ -93,6 +93,43 @@
     }
   }
 
+  @media only screen and (max-width: 770px) {
+    .herocont{
+      height: 120vh;
+    }
+
+    .desc{
+      color: grey;
+      margin-top: 5vh;
+      font-size: 3vh;
+  }
+
+  .heading{
+    font-size: 5vh;
+    font-style: italic;
+    font-weight: 700;
+}
+  }
+
+  @media only screen and (max-width: 484px) {
+    .herocont{
+      height: 120vh;
+    }
+
+    .desc{
+      color: grey;
+      margin-top: 2vh;
+      font-size: 2.6vh;
+  }
+
+  .heading{
+    font-size: 3vh;
+    font-style: italic;
+    font-weight: 700;
+}
+  }
+
+
 
 /*************************************************************
   HEADER
