@@ -1,7 +1,7 @@
 # SwiftPass
 ---
-## IDEA
-**Main idea behind project is ticketless entries in monuments and museum**
+## PROBLEM STATEMENT
+**Ticketless Entry System to Monuments/Museums**
 ___
 ## DESCRIPTION
 **We were given a problem statement for smart India hackathon which was ticketless entries in monuments and museums. We came up with solution by designing a website
