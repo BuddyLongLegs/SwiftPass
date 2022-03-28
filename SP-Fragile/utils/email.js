@@ -13,7 +13,7 @@ const notify = (email, subject, body, html) => {
   body = body || "";
   html = html || "";
   var mailOptions = {
-    from: `SIH TicketLess ${process.env.EMAIL}>`,
+    from: `Swift-Pass ${process.env.EMAIL}>`,
     to: email,
     subject: subject,
     text: body,

@@ -13,8 +13,7 @@ const showTicket = (ticket)=>{
 }
 
 .box{
-    height: 100vh;
-    padding-top: 20vh;
+    height: max-content;
 }
 
 .ticket{
