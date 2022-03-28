@@ -20,12 +20,12 @@ through which can priorly book ticket for their visit in museum with selection o
 
 
 ___
-## NOTES
-* item 1
-* item 2
-* item 3
-* item 4
-* item 5
-* item 6
-* item 7
+## Future Ideas
+* Scale it up for any museum/monument.
+* Better UI/UX.
+* Ticket Checking Software to be able to scan QR code.
+* Different Ticket rates for students, adults and foreign citizens.
+* Identity check option if the museum/monument requires.
+* Events category for museums/monuments and special ticket for them, with options like limited seats, etc.
+* More role levels for different functionalities.
 ___
