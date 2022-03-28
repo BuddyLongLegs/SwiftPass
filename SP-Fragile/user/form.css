@@ -4,6 +4,16 @@ body {
     background-position-y: -80px;
     }
 
+    @media only screen and (max-width: 770px) {
+        .container{
+            margin-top: 25vh;
+            
+        }   
+        .footer{
+            margin-top: 15vh;
+        }
+      }
+
     
     .section {
     position: relative;

@@ -10,7 +10,7 @@ function login(e) {
       password: password,
     })
     .then((response) => {
-      location.href = "../user/admin-home.html";
+      location.href = "/admin-home.html";
       console.log(response);
     })
     .catch((err) => {

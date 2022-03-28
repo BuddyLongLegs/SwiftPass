@@ -77,6 +77,7 @@ const checkTicket = async (req, res) => {
         ticket.usedOn = Date.now();
         ticket.checkingAdminId = req.user.username; // have doubt if it will work or not
         await ticket.save();
+        notify(ticket.email,"Ticket Verified Successfully",`You have successfully used ticket : ${ticket.code}`);
         return res.status(202).json({
           status: "success",
           message: `Ticket acccepted`,

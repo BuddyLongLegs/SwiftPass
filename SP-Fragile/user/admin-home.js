@@ -11,6 +11,11 @@ function check() {
       code: code,
     })
     .then((response) => {
-      console.log(response);
+      if(response.status==202)
+      {
+        alert("Ticket Verified Sucessfully");
+        document.getElementById("email").value ="";
+        document.getElementById("code").value = "";
+      }
     });
 }
