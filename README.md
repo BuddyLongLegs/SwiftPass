@@ -2,6 +2,17 @@
 ---
 ## PROBLEM STATEMENT
 **Ticketless Entry System to Monuments/Museums**
+
+*BACKGROUND :An e-ticket(electronic ticket) is a paperless electronic document used for ticketing.It can help in better crowd management of museums/heritage sites*
+
+*SUMMARY: To devise a QR based ticketing system with necessary hardware for seamless visitor experience in museums/heritage sites.In addition prediction of expected crowd must be a feature*
+
+*OBJECTIVE:*
+
+* It reduces booking expenses by eliminating the need for printing and mailing paper documents.
+* Help in keeping better record of visitors.
+* It can improve sales as a visitor can book ,purchase and print out the electronic ticket any time 24 hours a day.
+
 ___
 ## DESCRIPTION
 **We were given a problem statement for smart India hackathon which was ticketless entries in monuments and museums. We came up with solution by designing a website
