@@ -33,7 +33,7 @@ function changeSlide(btn) {
   leftSlide.style.transform = `translateY(-${currentSlide * 100}%)`;
 }
 
-setInterval(autoChangeSlide, 3000);
+// setInterval(autoChangeSlide, 3000);
 
 function autoChangeSlide() {
 
