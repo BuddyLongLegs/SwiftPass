@@ -1,4 +1,11 @@
+const qrcode = require("qrcode");
+
 const showTicket = (ticket)=>{
+    let data = {code: ticket.code, email: ticket.email};
+    var imgurl;
+    qrcode.toDataURL(JSON.stringify(data), (err, url)=>{
+        imgurl=url;
+    });
     var bookedon = new Date(ticket.purchasedOn);
     var bookedfor = new Date(ticket.forDate);
     let obj = `
@@ -251,7 +258,7 @@ const showTicket = (ticket)=>{
                     </div>
     
                     <div class="qr">
-                        <img src="https://swift-pass.herokuapp.com/resources/qr.png" alt="QR Code" id="qr">
+                        <img src="${imgurl}" alt="QR Code" id="qr">
                     </div>
                 </div>
     

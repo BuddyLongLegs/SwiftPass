@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./index.js",
-    "dev":"nodemon ./index.js"
+    "dev": "nodemon ./index.js"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -19,6 +19,7 @@
     "nodemailer": "^6.7.3",
     "passport": "^0.5.2",
     "passport-local-mongoose": "^7.0.0",
+    "qrcode": "^1.5.0",
     "razorpay": "^2.8.1",
     "shortid": "^2.2.16"
   },
