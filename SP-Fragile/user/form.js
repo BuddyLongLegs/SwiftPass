@@ -25,7 +25,8 @@ function payment(){
                     axios
                         .post(`/user/pay/verify/${res.data.receipt}`, {response: response})
                         .then((resp)=>{
-                            console.log(resp); // Do your work here FrontEnd
+                            location.href = "/ticket.html?id="+resp.data.hashedID;
+                             // Do your work here FrontEnd
                         })
                 },
                 "prefill": {

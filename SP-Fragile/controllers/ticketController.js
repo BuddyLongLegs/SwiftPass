@@ -166,18 +166,18 @@ const getTicket = async (req, res) => {
   try {
     let code = hash(decrypt(req.params.hashedID));
     let ticket = await Ticket.findOne({ code: code }).exec();
-    if (!ticket) {
-      return res.status(404).json({
-        status: "fail",
-        message: `Ticket does not exist`,
-      }); // ticket does not exist
-    }
-    return res.status(200).json({
-      status: "ok",
-      data: hideTicket(ticket),
-    });
+    if (ticket) {
+      return res.status(200).json({
+        status: "ok",
+        data: hideTicket(ticket),
+      });
+      // ticket does not exist
+    }return res.status(404).json({
+      status: "fail",
+      message: `Ticket does not exist`,
+    }); 
   } catch (err) {
-    console.log("Error getting Ticket");
+    console.log(err);
     return res.status(500).json({
       status: 500,
       error: `Error getting Ticket: ${err.message}`,

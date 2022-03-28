@@ -111,7 +111,7 @@ function decrypt(text) {
     Buffer.from(iv, "hex")
   );
   let decrypted = decipher.update(encryptedText);
-  decrypted = Buffer.concat([decrypted, decipher.final()]);
+  decrypted += decipher.final();
   return decrypted.toString();
 }
 

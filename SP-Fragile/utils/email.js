@@ -24,7 +24,7 @@ const notify = (email, subject, body, html) => {
     if (error) {
       console.log(error);
     } else {
-      console.log("Email sent to: " + email);
+      // console.log("Email sent to: " + email);
     }
   });
 };

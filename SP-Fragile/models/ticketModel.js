@@ -30,7 +30,6 @@ const ticketSchema = new mongoose.Schema({
   forDate: {
     type: Date,
     default: Date.now(), //booking date
-    select: false,
   },
   usedOn: {
     type: Date,

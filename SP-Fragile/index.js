@@ -6,10 +6,10 @@ const passport = require("passport");
 const cors = require("cors");
 const passportLocalMongoose = require("passport-local-mongoose");
 require("dotenv/config");
-
+const eachorigin = require("./controllers/middlewares").eachorigin;
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 require("./config/passport");
 
 
@@ -43,7 +43,7 @@ app.use(passport.session());
 
 // Loading HTML
 app.use(express.static("./user"));
-app.use("/resources", express.static("./user/resources"));
+app.use("/resources", eachorigin, express.static("./user/resources"));
 
 // Routes
 const adminrouter = require("./routes/adminRoutes");
